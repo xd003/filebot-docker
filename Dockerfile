@@ -3,7 +3,7 @@ FROM ubuntu:20.04
 ENV FILEBOT_VERSION 4.9.3 BETA r8579
 
 RUN apt-get update \
- && apt-get install -y default-jre-headless libjna-java mediainfo libchromaprint-tools unrar p7zip-full p7zip-rar mkvtoolnix atomicparsley gnupg curl file inotify-tools \
+ && apt-get install -y default-jre-headless libjna-java mediainfo libchromaprint-tools unrar p7zip-full p7zip-rar mkvtoolnix atomicparsley gnupg curl file inotify-tools wget \
  && rm -rvf /var/lib/apt/lists/*
 
 RUN wget https://get.filebot.net/filebot/BETA/FileBot_4.9.3_universal.deb \
