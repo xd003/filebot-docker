@@ -11,7 +11,7 @@ RUN wget https://get.filebot.net/filebot/FileBot_"$FILEBOT_VERSION"/FileBot_"$FI
  && dpkg -i FileBot_"$FILEBOT_VERSION"_universal.deb \
  && rm -rf FileBot_"$FILEBOT_VERSION"_universal.deb
 
-ENV export JAVA_OPTS="-Xmx1g"
+ENV JAVA_OPTS="-Xmx1g"
 ENV HOME /data
 ENV LANG C.UTF-8
 ENV FILEBOT_OPTS "-Dapplication.deployment=docker -Duser.home=$HOME"
