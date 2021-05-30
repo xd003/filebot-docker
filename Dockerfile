@@ -1,12 +1,12 @@
 FROM ubuntu:20.04
 
-ENV FILEBOT_VERSION 4.9.3 BETA r8580
+ENV FILEBOT_VERSION 4.9.3-STABLE
 
 RUN apt-get update \
  && apt-get install -y default-jre-headless libjna-java mediainfo libchromaprint-tools unrar p7zip-full p7zip-rar mkvtoolnix atomicparsley gnupg curl file inotify-tools wget \
  && rm -rvf /var/lib/apt/lists/*
 
-RUN wget https://get.filebot.net/filebot/BETA/FileBot_4.9.3_universal.deb \
+RUN wget https://get.filebot.net/filebot/FileBot_4.9.3/FileBot_4.9.3_universal.deb \
  && dpkg -i FileBot_4.9.3_universal.deb \
  && rm -rf FileBot_4.9.3_universal.deb \
  && export JAVA_OPTS="-Xmx1g"
