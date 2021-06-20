@@ -1,6 +1,6 @@
 FROM ubuntu:20.04
 
-# BETA r8672
+# BETA r8676
 ENV FILEBOT_VERSION 4.9.3
 
 RUN apt-get update \
