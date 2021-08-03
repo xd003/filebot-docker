@@ -1,7 +1,7 @@
 FROM ubuntu:20.04
 
 # BETA r8726
-ENV FILEBOT_VERSION 4.9.3
+ENV FILEBOT_VERSION 4.9.4
 
 RUN apt-get update \
  && apt-get install -y default-jre-headless libjna-java mediainfo libchromaprint-tools unrar p7zip-full p7zip-rar mkvtoolnix atomicparsley gnupg curl file inotify-tools wget \
