@@ -14,7 +14,7 @@ RUN wget https://get.filebot.net/filebot/FileBot_"$FILEBOT_VERSION"/FileBot_"$FI
 ENV JAVA_OPTS="-Xmx1g"
 ENV HOME /data
 ENV LANG C.UTF-8
-ENV FILEBOT_OPTS "-Dapplication.deployment=docker -Duser.home=$HOME"
 
+RUN sed -i 's/-Dapplication.deployment=deb/-Dapplication.deployment=docker -Duser.home="$HOME"/g' /usr/bin/filebot
 
 ENTRYPOINT ["filebot"]
