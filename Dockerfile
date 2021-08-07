@@ -1,6 +1,5 @@
 FROM ubuntu:20.04
 
-# BETA r8726
 ENV FILEBOT_VERSION 4.9.4
 
 RUN apt-get update \
