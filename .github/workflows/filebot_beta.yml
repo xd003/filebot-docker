@@ -32,4 +32,4 @@ jobs:
           file: ./Dockerfile
           platforms: linux/amd64
           push: true
-          tags: xd003/filebot:beta
+          tags: ghcr.io/xd003/filebot:beta
