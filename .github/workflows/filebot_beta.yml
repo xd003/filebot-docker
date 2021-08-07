@@ -1,10 +1,13 @@
 name: Filebot Docker
 
 on:
+  pull_request:
   push:
-    tags:
-      - "v*.*.*"
-
+    branches:
+      - beta
+  release:
+    types:
+      - created
 jobs:
   build:
     runs-on: ubuntu-latest
