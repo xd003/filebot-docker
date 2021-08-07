@@ -2,8 +2,9 @@ name: Filebot Docker
 
 on:
   push:
-    branches:
-      - 'beta'
+    tags:
+      - "v*.*.*"
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -18,7 +19,19 @@ jobs:
           registry: ghcr.io
           username: ${{ github.repository_owner }}
           password: ${{ secrets.GHCR_PASSWORD }}
-          
+
+      - name: Get the version
+        id: get_version
+        run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
+        
+      - name: Docker meta
+        id: metaraw
+        uses: docker/metadata-action@v3
+        with:
+          images: ghcr.io/xd003/filebot:beta
+          tags: |
+            type=semver,pattern={{version}}
+        
       - name: Build and publish
         uses: docker/build-push-action@v2
         with:
@@ -26,4 +39,4 @@ jobs:
           file: ./Dockerfile
           platforms: linux/amd64
           push: true
-          tags: ghcr.io/xd003/filebot:beta
+          tags: ${{ steps.metaraw.outputs.tags }}
