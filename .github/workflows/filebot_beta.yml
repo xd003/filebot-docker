@@ -32,7 +32,7 @@ jobs:
         id: metaraw
         uses: docker/metadata-action@v3
         with:
-          images: ghcr.io/xd003/filebot:beta
+          images: ghcr.io/xd003/filebot
           tags: |
             type=ref,event=tag
             type=ref,event=branch
