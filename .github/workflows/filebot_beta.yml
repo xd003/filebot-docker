@@ -46,3 +46,4 @@ jobs:
           platforms: linux/amd64
           push: true
           tags: ${{ steps.metaraw.outputs.tags }}
+          labels: ${{ steps.metaraw.outputs.labels }}
