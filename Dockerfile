@@ -10,7 +10,7 @@ RUN wget https://get.filebot.net/filebot/BETA/FileBot_"$FILEBOT_VERSION"_univers
  && dpkg -i FileBot_"$FILEBOT_VERSION"_universal.deb \
  && rm -rf FileBot_"$FILEBOT_VERSION"_universal.deb
 
-ENV JAVA_OPTS="-Xmx16g"
+ENV JAVA_OPTS="-Xmx2g"
 ENV HOME /data
 ENV LANG C.UTF-8
 
