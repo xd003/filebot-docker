@@ -16,8 +16,8 @@ jobs:
       - name: Check out
         uses: actions/checkout@v2
         
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v1
+#       - name: Set up Docker Buildx
+#         uses: docker/setup-buildx-action@v1
 
       - name: Login to GHCR
         uses: docker/login-action@v1
@@ -25,10 +25,6 @@ jobs:
           registry: ghcr.io
           username: ${{ github.repository_owner }}
           password: ${{ secrets.GHCR_PASSWORD }}
-
-      - name: Get the version
-        id: get_version
-        run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
         
       - name: Docker meta
         id: metaraw
@@ -36,7 +32,9 @@ jobs:
         with:
           images: ghcr.io/xd003/filebot:beta
           tags: |
-            type=semver,pattern={{version}}
+            type=ref,event=tag
+            type=ref,event=branch
+            type=ref,event=pr
         
       - name: Build and publish
         uses: docker/build-push-action@v2
